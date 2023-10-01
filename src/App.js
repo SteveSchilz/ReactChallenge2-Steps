@@ -9,7 +9,7 @@ import { useState } from "react";
 // props.onChange = plain javascript function to call when changing item
 //                  (parameter = stepSize)
 // props.stepSize = integer value how much to change component on increment/decremanet
-function Counter(props) {
+function SpinButton(props) {
   function handleDecrease() {
     if (props.val >= -365) {
       props.onChange(-1 * props.stepSize);
@@ -57,8 +57,13 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p></p>
-        <Counter text="Step" val={step} onChange={onStepChanged} stepSize={1} />
-        <Counter
+        <SpinButton
+          text="Step"
+          val={step}
+          onChange={onStepChanged}
+          stepSize={1}
+        />
+        <SpinButton
           text="Count"
           val={count}
           onChange={onCountChanged}
