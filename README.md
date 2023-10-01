@@ -1,6 +1,32 @@
-# Getting Started with Create React App
+# Udemy Ultimate React Course - Challenge #2 - State
+
+This is a very simple react app implementing [Challenge #2](https://www.udemy.com/course/the-ultimate-react-course/learn/lecture/37350602) from
+the Udemy [Ultimate React Course](https://www.udemy.com/course/the-ultimate-react-course/) by Jonas Schmedtmann
+
+The point of the challenge is to utilize simple state functions correctly.
+
+The app displays two SpinButton components that interact with
+each other to calculate a date N days in the future.
+
+It was interesting because the way that the challenge was laid out screams
+for a component to encapsulate two buttons, a text value and a state value.
+
+This was quite easy to do, but the fact that the "count" value depends on the
+"step" value means that the state needs to be accessible outside of the
+components.
+
+This was handled by defining the state variables in the parent component,
+and then passing the values and plain vanilla javascript callback to the components.
+The callback updates the state variables in the parent.  
+This all worked out quite elegantly.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+---
+
+_Remainder of file is React boilerplate from npx create-react-app@5_
+
+---
 
 ## Available Scripts
 
