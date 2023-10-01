@@ -2,6 +2,34 @@ import logo from "./logo.svg";
 import "./App.css";
 import { useState } from "react";
 
+// Plain Javascript function to output a date
+const formattedTimestamp = (now) => {
+  const date = now.toISOString().split("T")[0];
+  //const time = now.toTimeString().split(" ")[0];
+  //return `${date} ${time}`;
+  return `${date}`;
+};
+
+// Plain Javascript function to add number of days to a date
+function addDays(date, days) {
+  var result = new Date(date);
+  result.setDate(result.getDate() + days);
+  return result;
+}
+
+function weekDay(day) {
+  let weekDays = {
+    1: "Monday",
+    2: "Tuesday",
+    3: "Wednesday",
+    4: "Thursday",
+    5: "Friday",
+    6: "Saturday",
+    7: "Sunday",
+  };
+  return weekDays[day];
+}
+
 // SpinButton Component
 //
 // Parameters
@@ -38,6 +66,9 @@ function SpinButton(props) {
 function App() {
   const [step, setStep] = useState(1);
   const [count, setCount] = useState(0);
+  var now = new Date();
+  var diffDate = addDays(now, count);
+  var dayNum = diffDate.getDay(); // Day of week 1-7
 
   // Note: these callbacks are vanilla javascript functions,
   //       not react components, therefore parameter is
@@ -69,6 +100,10 @@ function App() {
           onChange={onCountChanged}
           stepSize={step}
         />
+        <p>
+          {count} day{dayNum !== 1 ? "s" : ""} from now is {weekDay(dayNum)},{" "}
+          {formattedTimestamp(addDays(now, count))}
+        </p>
       </header>
     </div>
   );
